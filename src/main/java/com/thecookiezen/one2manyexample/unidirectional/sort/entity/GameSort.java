@@ -1,14 +1,17 @@
-package com.thecookiezen.one2manyexample.unidirectional.order.entity;
+package com.thecookiezen.one2manyexample.unidirectional.sort.entity;
+
+import org.hibernate.annotations.Sort;
+import org.hibernate.annotations.SortType;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 
 @Entity
-public class Game {
+public class GameSort {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +21,8 @@ public class Game {
 
     @OneToMany(cascade = ALL, fetch = EAGER)
     @JoinColumn
-    @OrderBy("priority")
-    private List<GameImage> images = new ArrayList<>();
+    @Sort(type = SortType.NATURAL)
+    private SortedSet<GameImage> images = new TreeSet<>();
 
     public int getId() {
         return id;
@@ -37,11 +40,11 @@ public class Game {
         this.value = value;
     }
 
-    public List<GameImage> getImages() {
+    public SortedSet<GameImage> getImages() {
         return images;
     }
 
-    public void setImages(List<GameImage> images) {
+    public void setImages(SortedSet<GameImage> images) {
         this.images = images;
     }
 }
