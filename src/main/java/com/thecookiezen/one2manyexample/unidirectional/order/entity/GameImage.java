@@ -2,7 +2,7 @@ package com.thecookiezen.one2manyexample.unidirectional.order.entity;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "GameImageOrder")
 @Table(name = "GameImageOrder")
 public class GameImage {
 

@@ -6,12 +6,13 @@ import com.thecookiezen.one2manyexample.unidirectional.sort.control.GameSortServ
 import com.thecookiezen.one2manyexample.unidirectional.sort.entity.GameSort;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/entities")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class GameResource {
 
     @Inject
@@ -33,15 +34,15 @@ public class GameResource {
     }
 
     @GET
-    @Path("/sort")
-    public List<GameSort> getSortAll() {
-        return gameSortService.getAll();
-    }
-
-    @GET
     @Path("/order")
     public List<GameOrder> getOrderAll() {
         return gameOrderService.getAll();
+    }
+
+    @GET
+    @Path("/sort")
+    public List<GameSort> getSortAll() {
+        return gameSortService.getAll();
     }
 
 

@@ -15,8 +15,8 @@
                 See https://issues.jboss.org/browse/WFLY-2727  
             -->
             <property name="wildfly.jpa.twophasebootstrap" value="false" />
-            <property name="show_sql">true</property>
-            <property name="format_sql">true</property>
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
         </properties>
     </persistence-unit>

@@ -2,7 +2,7 @@ package com.thecookiezen.one2manyexample.unidirectional.sort.entity;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "GameImageSort")
 @Table(name = "GameImageSort")
 public class GameImage implements Comparable<GameImage>{
 
